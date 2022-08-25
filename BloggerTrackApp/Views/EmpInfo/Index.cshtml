@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BloggerTrackApp.Models.EmpInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>EmpInfo</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr style="background-color:aquamarine">
+
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateofJoining)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="background-color:beige">
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateofJoining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"class="btn btn-info">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
